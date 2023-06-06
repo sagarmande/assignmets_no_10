@@ -1,0 +1,35 @@
+Unfortunately, I'm unable to display the full example you mentioned. However, I can explain the algorithm for solving the Tower of Hanoi problem and provide an example implementation. 
+
+The Tower of Hanoi problem can be solved using recursive techniques. Here's the algorithm to solve the problem:
+
+1. Define a function `tower_of_hanoi` that takes the following parameters:
+   - `n`: The number of discs.
+   - `source`: The rod from which discs are initially placed.
+   - `auxiliary`: The auxiliary rod.
+   - `destination`: The rod to which discs need to be moved.
+
+2. Check the base case: If `n` is 1, simply move the disc from the source rod to the destination rod and return.
+
+3. Recursively solve the subproblem by following these steps:
+   - Move `n-1` discs from the source rod to the auxiliary rod using the destination rod as an intermediate step. This can be done by recursively calling the `tower_of_hanoi` function with `n-1` discs, `source` as the source rod, `destination` as the auxiliary rod, and `auxiliary` as the destination rod.
+   - Move the largest disc (numbered `n`) from the source rod to the destination rod.
+   - Move the `n-1` discs from the auxiliary rod to the destination rod using the source rod as an intermediate step. Again, this can be done by recursively calling the `tower_of_hanoi` function with `n-1` discs, `auxiliary` as the source rod, `source` as the auxiliary rod, and `destination` as the destination rod.
+
+Here's an example implementation in Python:
+
+```python
+def tower_of_hanoi(n, source, auxiliary, destination):
+    if n == 1:
+        print(f"Move disc 1 from {source} to {destination}")
+        return
+
+    tower_of_hanoi(n - 1, source, destination, auxiliary)
+    print(f"Move disc {n} from {source} to {destination}")
+    tower_of_hanoi(n - 1, auxiliary, source, destination)
+
+# Example usage
+n = 3  # Number of discs
+tower_of_hanoi(n, "Rod 1", "Rod 2", "Rod 3")
+```
+
+In this example, the `tower_of_hanoi` function is called with `n=3`, indicating that there are three discs to be moved. The function follows the recursive steps described above and prints the steps for moving the discs from one rod to another. The output shows the sequence of moves needed to solve the Tower of Hanoi puzzle for three discs.
