@@ -1,0 +1,12 @@
+def count_contiguous_substrings(string):
+    count = 0
+    for i in range(len(string)):
+        for j in range(i, len(string)):
+            if string[i] == string[j]:
+                count += 1
+    return count
+
+# Example usage
+string = "aba"
+count = count_contiguous_substrings(string)
+print(count)  # Output: 4
