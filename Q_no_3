@@ -1,0 +1,47 @@
+def print_subsets(string, curr_subset, index):
+    if index == len(string):
+        print(curr_subset)
+        return
+
+    # Exclude the current character
+    print_subsets(string, curr_subset, index + 1)
+
+    # Include the current character
+    print_subsets(string, curr_subset + string[index], index + 1)
+
+
+def print_all_subsets(string):
+    print_subsets(string, "", 0)
+
+
+print_all_subsets("abc")
+# Output:
+# 
+# 
+# a
+# b
+# c
+# ab
+# ac
+# bc
+# abc
+
+print_all_subsets("abcd")
+# Output:
+# 
+# 
+# a
+# b
+# c
+# d
+# ab
+# ac
+# ad
+# bc
+# bd
+# cd
+# abc
+# abd
+# acd
+# bcd
+# abcd
