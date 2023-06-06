@@ -1,0 +1,20 @@
+def permute_string(string, left, right):
+    if left == right:
+        print(''.join(string))
+    else:
+        for i in range(left, right + 1):
+            string[left], string[i] = string[i], string[left]  # Swap characters
+            permute_string(string, left + 1, right)  # Recursively permute the remaining characters
+            string[left], string[i] = string[i], string[left]  # Restore the original order
+
+
+def print_permutations(str):
+    n = len(str)
+    string = list(str)
+    permute_string(string, 0, n - 1)
+
+
+# Example usage:
+input_str = "abb"
+print_permutations(input_str)
+
