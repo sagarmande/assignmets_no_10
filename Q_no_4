@@ -1,0 +1,10 @@
+def calculate_length(string):
+    if string == "":
+        return 0
+    else:
+        return 1 + calculate_length(string[1:])
+
+# Example usage
+string = "Hello, World!"
+length = calculate_length(string)
+print(length)  # Output: 13
