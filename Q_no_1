@@ -1,0 +1,14 @@
+import math
+
+def is_power_of_three(n):
+    if n <= 0:
+        return False
+    log_val = math.log10(n) / math.log10(3)
+    return log_val == int(log_val)
+
+
+
+print(is_power_of_three(27))  # Output: True
+print(is_power_of_three(9))   # Output: True
+print(is_power_of_three(45))  # Output: False
+print(is_power_of_three(0))   # Output: False
