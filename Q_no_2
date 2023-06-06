@@ -1,0 +1,18 @@
+def last_remaining_number(n):
+    arr = list(range(1, n + 1))  # Create the initial list [1, 2, ..., n]
+
+    while len(arr) > 1:
+        # Step 1: Remove every other number from left to right
+        arr = arr[1::2]
+
+        if len(arr) == 1:
+            break
+
+        # Step 2: Remove every other number from right to left
+        arr = arr[-2::-2][::-1]
+
+    return arr[0]  # Return the last remaining number
+
+
+
+print(last_remaining_number(9))  # Output: 6
