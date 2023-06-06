@@ -1,0 +1,15 @@
+def count_consonants(string):
+    count = 0
+    vowels = ['a', 'e', 'i', 'o', 'u']
+
+    for char in string:
+        if char.isalpha() and char.lower() not in vowels:
+            count += 1
+
+    return count
+
+
+# Example usage:
+input_str = "Hello, World!"
+consonant_count = count_consonants(input_str)
+print("Total number of consonants:", consonant_count)
